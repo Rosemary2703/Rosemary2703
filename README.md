@@ -1,5 +1,13 @@
-😸Hola mi nombre es Maria , pero comunmente me dicen Rose 🍒
-soy estudiante de informatica 🕶  y estoy aprendiendo a codificar  💻,
-me impulsa la idea de expandir conocimiento  📢 sobre programacion a quienes no tengan ni idea por donde empezar ✨🖥📖,
-formo parte de la comunidad de instructoras  Tecnolohicas el cual se encarga de impulsar 
-conocimiento Stem a niñas,mujeres y estudiantes 💜💜✨✨🤞
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
